@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Categoria</th>
+    <th>Nome do Autor</th>
+    <th>Editora</th>
+    <th>Versão</th>
+    <th>Açoes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let livro of livros">
+    <td>{{ livro.categoria }}</td>
+    <td>{{ livro.nomeAutor }}</td>
+    <td>{{ livro.editora }}</td>
+    <td>{{ livro.versao }}</td>
+    <td>
+
+      <button class="btn btn-danger" (click)="deletar(livro.id)"> Delete</button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+

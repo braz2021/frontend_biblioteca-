@@ -1,0 +1,29 @@
+
+
+
+  <form [formGroup]="formLivro" (ngSubmit)="submitForm()">
+    <div>
+      <label for="categoria">Categoria:</label>
+      <input type="text" id="categoria" name="categoria" formControlName="categoria">
+    </div>
+    <div>
+      <label for="nomeAutor">Nome do Autor:</label>
+      <input type="text" id="nomeAutor" name="nomeAutor" formControlName="nomeAutor">
+    </div>
+    <div>
+      <label for="editora">Editora:</label>
+      <input type="text" id="editora" name="editora" formControlName="editora">
+    </div>
+    <div>
+      <label for="versao">Versão:</label>
+      <input type="text" id="versao" name="versao" formControlName="versao">
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!formLivro.valid">Enviar</button>
+  </form>
+
+
+<div class="container">
+
+  <app-lista-livros  [livros]="livros"  ></app-lista-livros>
+</div>
