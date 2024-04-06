@@ -17,6 +17,7 @@ export class LivroComponent implements OnInit {
 
   livro: any;
   formLivro!: FormGroup;
+  pesquisa!: FormGroup;
   livros: any[] = [];
 
 
@@ -36,6 +37,10 @@ export class LivroComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.pesquisa = this.formBiuld.group({
+      nomeAutor: [null]
+    })
+
     this.formLivro = this.formBiuld.group({
       categoria: [null, Validators.required],
       nomeAutor: [null, Validators.required],
@@ -50,6 +55,12 @@ export class LivroComponent implements OnInit {
   carregarLivros(){
     this.service.getLivros().subscribe(response =>{
       this.livros=response
+    })
+  }
+
+  pesquisaByAutor(){
+    this.service.pesquisaByAutor(this.pesquisa.controls["nomeAutor"].value).subscribe(response =>{
+      this.livros= response;
     })
   }
 

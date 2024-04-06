@@ -23,9 +23,12 @@ export class LivroService {
 
 
   detelar(id: any) {
-
-    console.info(this.apiUrl + "/" + id)
-
     return this.http.delete(this.apiUrl + "/" + id)
   }
+
+
+  pesquisaByAutor(autor: string){
+    return this.http.get<any>(this.apiUrl +"?nomeAutor="+ autor)
+  }
+
 }

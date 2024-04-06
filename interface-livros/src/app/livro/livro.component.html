@@ -1,29 +1,53 @@
-
-
-
-  <form [formGroup]="formLivro" (ngSubmit)="submitForm()">
-    <div>
-      <label for="categoria">Categoria:</label>
-      <input type="text" id="categoria" name="categoria" formControlName="categoria">
-    </div>
-    <div>
-      <label for="nomeAutor">Nome do Autor:</label>
-      <input type="text" id="nomeAutor" name="nomeAutor" formControlName="nomeAutor">
-    </div>
-    <div>
-      <label for="editora">Editora:</label>
-      <input type="text" id="editora" name="editora" formControlName="editora">
-    </div>
-    <div>
-      <label for="versao">Versão:</label>
-      <input type="text" id="versao" name="versao" formControlName="versao">
-    </div>
-
-    <button class="btn btn-primary" type="submit" [disabled]="!formLivro.valid">Enviar</button>
-  </form>
-
-
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mt-5 mb-3" > Cadastrar Livro </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="formLivro" (ngSubmit)="submitForm()" class="row g-3">
+        <div class="col-md-6">
+          <label for="categoria" class="form-label">Categoria:</label>
+          <input type="text" id="categoria" name="categoria" formControlName="categoria" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="nomeAutor" class="form-label">Nome do Autor:</label>
+          <input type="text" id="nomeAutor" name="nomeAutor" formControlName="nomeAutor" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="editora" class="form-label">Editora:</label>
+          <input type="text" id="editora" name="editora" formControlName="editora" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="versao" class="form-label">Versão:</label>
+          <input type="text" id="versao" name="versao" formControlName="versao" class="form-control">
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" [disabled]="!formLivro.valid">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center mt-5 mb-3">Pesquisar Por Autor </h2>
+    </div>
+  </div>
+  <div class="row">
+    <form [formGroup]="pesquisa" (ngSubmit)="pesquisaByAutor()" class="col-md-6">
+      <div class="input-group">
+        <label for="nomeAutor" class="input-group-text">Nome do Autor:</label>
+        <input type="text" id="nomeAutor" formControlName="nomeAutor" class="form-control">
+      </div>
+      <div class="col-md-12 mt-3">
+        <button class="btn btn-primary" type="submit">Pesquisar</button>
+      </div>
+    </form>
+  </div>
   <app-lista-livros  [livros]="livros"  ></app-lista-livros>
 </div>
+
